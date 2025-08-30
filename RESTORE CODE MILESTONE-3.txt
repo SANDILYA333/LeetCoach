@@ -1,0 +1,104 @@
+<!-- LeetCoach Floating Panel -->
+<div id="leetcoach-container" class="leetcoach">
+  <!-- Header (drag handle + minimize toggle) -->
+  <div class="leetcoach-header">
+    <span class="leetcoach-title">🤖 LeetCoach</span>
+    <button id="leetcoach-minimize" class="leetcoach-btn">—</button>
+  </div>
+
+  <!-- Body (buttons + output) -->
+  <div class="leetcoach-body">
+    <!-- Action Buttons -->
+    <button class="leetcoach-action">
+      🧩 Get Hints
+    </button>
+    <button class="leetcoach-action">
+      🔍 Analyze Code
+    </button>
+    <button class="leetcoach-action">
+      ⚡ Check Complexity
+    </button>
+
+    <!-- Output Panel -->
+    <div id="leetcoach-output" class="leetcoach-output">
+      <em>Results will appear here...</em>
+    </div>
+  </div>
+</div>
+
+#CSS
+
+/* === LeetCoach Panel Base === */
+.leetcoach {
+  position: fixed;
+  top: 100px;
+  right: 40px;
+  width: 280px;
+  background: #000; /* Solid black background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-family: Arial, sans-serif;
+  color: #fff;
+  z-index: 999999; /* Always above */
+}
+
+/* === Header (drag handle + minimize) === */
+.leetcoach-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #111;
+  border-radius: 12px 12px 0 0;
+  cursor: move; /* draggable */
+}
+
+.leetcoach-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.leetcoach-btn {
+  background: none;
+  border: none;
+  color: #0ff; /* turquoise accent */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* === Body === */
+.leetcoach-body {
+  padding: 12px;
+}
+
+/* === Action Buttons (vertical stack) === */
+.leetcoach-action {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #0ff; /* turquoise accent */
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.leetcoach-action:hover {
+  background: #222;
+}
+
+/* === Output Panel === */
+.leetcoach-output {
+  margin-top: 12px;
+  max-height: 150px;
+  overflow-y: auto;
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}

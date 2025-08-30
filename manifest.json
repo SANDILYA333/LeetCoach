@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCoach AI",
+  "version": "1.0.0",
+  "description": "AI assistant for LeetCode problems: hints, analysis, and complexity estimates.",
+  "permissions": [
+    "storage", 
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "*://leetcode.com/*",
+    "*://*.leetcode.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "LeetCoach AI Settings",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://leetcode.com/*", 
+        "*://*.leetcode.com/*"
+      ],
+      "js": [
+        "src/injected/injected-script.js",
+        "src/content/content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/injected/injected-script.js"],
+      "matches": ["*://leetcode.com/*", "*://*.leetcode.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
